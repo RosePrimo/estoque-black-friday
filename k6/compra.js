@@ -25,7 +25,7 @@ export default function () {
         JSON.stringify({ quantidade: 1 }),
         { headers: { 'Content-Type': 'application/json' } }
     );
-    if (res.status === 200) vendas.add(1);
+    if (res.status === 200 || res.status === 202) vendas.add(1);
     else if (res.status === 409) recusas.add(1);
     else erros.add(1);
 }

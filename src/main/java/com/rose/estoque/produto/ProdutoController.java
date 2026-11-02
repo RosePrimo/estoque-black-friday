@@ -26,7 +26,8 @@ public class ProdutoController {
     }
 
     @PostMapping("/{id}/comprar")
-    public ProdutoResponse comprar(@PathVariable Long id, @Valid @RequestBody ComprarRequest request) {
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public CompraAceitaResponse comprar(@PathVariable Long id, @Valid @RequestBody ComprarRequest request) {
         return service.comprar(id, request);
     }
 }
